@@ -7,8 +7,8 @@
  
 #include <SoftwareSerial.h>
 SoftwareSerial BTserial(2, 3); // RX | TX
-// Connect the HC-05 TX to Arduino pin 2 RX. 
-// Connect the HC-05 RX to Arduino pin 3 TX through a voltage divider.
+// Connect the HC-05 TX to Arduino pin 2 
+// Connect the HC-05 RX to Arduino pin 3
 // Connect the HC-05 STATE pin to Arduino pin 4.
 //
  
@@ -16,6 +16,7 @@ char c = ' ';
 String cuvant ;
 String on = "on";
 String off = "off";
+
 // BTconnected will = false when not connected and true when connected
 boolean BTconnected = false;
  
@@ -48,8 +49,7 @@ void setup()
     BTserial.write('x'); 
 }
  
-void loop()
-{
+void loop(){
  
     // Keep reading from the HC-05 and send to Arduino Serial Monitor
     if (BTserial.available()){     
@@ -74,12 +74,4 @@ void loop()
             break;
           }
     }
- 
-//    // Keep reading from Arduino Serial Monitor input field and send to HC-05
-//    if (Serial.available())
-//    {
-//        c =  Serial.read();
-//        BTserial.write(c);  
-//    }
- 
 }
