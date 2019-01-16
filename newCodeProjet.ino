@@ -1,5 +1,4 @@
-// avec 3 LEDs
-
+//avec 3 LEDs, chacun avec son propre fermeture
 
 // Basic Bluetooth sketch HC-05_03 Using the state pin 
 // Connect the HC-05 module and communicate using the serial monitor
@@ -80,12 +79,24 @@ void loop()
             break;
           case 'i':
             digitalWrite(ledV,LOW);
-            digitalWrite(ledA,LOW);
-            digitalWrite(ledR,LOW);
             //delay(1000);
             BTserial.write('D');
             BTserial.println("");
             Serial.println("ledV off");
+            break;
+         
+         case 'f':
+            digitalWrite(ledA,LOW);
+            BTserial.write('F');
+            BTserial.println("");
+            Serial.println("Blue off");
+            break;
+         
+         case 'c':
+            digitalWrite(ledR,LOW);
+            BTserial.write('C');
+            BTserial.println("");
+            Serial.println("Rouge off");
             break;
           }
     }
